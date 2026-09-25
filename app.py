@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 import time
+from datetime import datetime
 
 # 1. Konfigurasi Tampilan Halaman Web
 st.set_page_config(
@@ -76,7 +77,6 @@ if not df_crypto.empty:
     # Tombol Refresh Manual di Sidebar
     if st.sidebar.button("🔄 Perbarui Data Sekarang (Manual)"):
         st.cache_data.clear()
-        st.invalidate_pages()
         st.rerun()
 
     # 5. Logika Penyaringan Data
@@ -89,9 +89,19 @@ if not df_crypto.empty:
     col1, col2, col3 = st.columns(3)
     col1.metric("Total Koin Dipantau", len(df_crypto))
     col2.metric("Koin Terdeteksi Whale", len(filtered_df))
-    # Jam sekarang akan selalu mengikuti waktu refresh terakhir
-    waktu_sekarang = time.strftime('%H:%M:%S WIB')
-    col3.metric("Terakhir Diperbarui", waktu_sekarang)
+    
+    # Konversi hari ke Bahasa Indonesia
+    hari_en = datetime.now().strftime('%A')
+    kamus_hari = {
+        'Sunday': 'Minggu', 'Monday': 'Senin', 'Tuesday': 'Selasa',
+        'Wednesday': 'Rabu', 'Thursday': 'Kamis', 'Friday': 'Jumat', 'Saturday': 'Sabtu'
+    }
+    hari_id = kamus_hari.get(hari_en, hari_en)
+    
+    # Menggabungkan tanggal dan jam terupdate
+    waktu_live = datetime.now().strftime('%d/%m/%Y - %H:%M:%S WIB')
+    waktu_lengkap = f"{hari_id}, {waktu_live}"
+    col3.metric("Terakhir Diperbarui", waktu_lengkap)
 
     # 7. Menampilkan Grafik Tren Koin Teratas
     st.markdown("---")
@@ -112,15 +122,14 @@ if not df_crypto.empty:
     else:
         st.warning("⚠️ Naikkan atau sesuaikan filter untuk melihat grafik.")
 
-    # 8. FITUR BARU: Tombol Download Data ke CSV/Excel
+    # 8. Tombol Download Data ke CSV
     st.markdown("---")
-    col_title, col_download = st.columns([4, 1])
+    col_title, col_download = st.columns()
     with col_title:
         st.subheader("📊 Hasil Analisis Penyaringan Koin")
     
     with col_download:
         if not filtered_df.empty:
-            # Mengubah dataframe menjadi format CSV mentah
             csv_data = filtered_df.to_csv(index=False).encode('utf-8')
             st.download_button(
                 label="📥 Unduh Data (CSV)",
