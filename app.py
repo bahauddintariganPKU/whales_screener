@@ -113,3 +113,7 @@ if not df_crypto.empty:
         )
     else:
         st.warning("⚠️ Tidak ada koin yang memenuhi kriteria filter saat ini. Coba turunkan nilai batasan filter di sidebar.")
+        # 8. Menambahkan Kredit Pembuat di Bagian Bawah Halaman Web
+st.markdown("---")
+st.caption("🚀 **Created by Bahauddin Tarigan** | © 2026 Crypto Whale Tracker")
+
