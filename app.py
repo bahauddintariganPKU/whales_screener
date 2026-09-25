@@ -12,6 +12,12 @@ st.set_page_config(
 
 st.title("🐋 Live Crypto Whale Screener Dashboard")
 st.write("Mendeteksi aktivitas akumulasi koin oleh *Whale* berdasarkan volume perdagangan dan rasio Vol/Mcap secara live.")
+# Tambahkan fitur auto-refresh setiap 60 detik (1 menit)
+if 'refresh_timer' not in st.session_state:
+    st.session_state.refresh_timer = time.time()
+time.sleep(60)
+st.rerun()
+
 
 # 2. Fungsi untuk Mengambil Data Real-Time + Data Sparkline (Grafik)
 @st.cache_data(ttl=60)
