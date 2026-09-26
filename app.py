@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 st.title("🐋 Live Crypto Whale Screener Dashboard")
-st.write("Mendeteksi aktivitas akumulasi koin oleh *Whale* berdasarkan volume perdagangan dan rasio Vol/Mcap secara live. coingecko Basic Mengapa Whale "Terjebak" oleh Indikator Ini? Whale memiliki modal jutaan hingga miliaran dolar. Mereka tidak bisa menyembunyikan volume transaksi mereka. Ketika whale mulai mengakumulasi (membeli) atau melakukan distribusi (menjual) sebuah koin, mereka akan menyuntikkan likuiditas dalam jumlah raksasa. Akibatnya, volume perdagangan harian koin tersebut melonjak drastis, sementara kapitalisasi pasarnya (Market Cap) belum berubah banyak. Hal inilah yang membuat rasio Vol/Mcap melompat naik dan langsung terdeteksi oleh screener ini")
+st.write("Mendeteksi aktivitas akumulasi koin oleh *Whale* berdasarkan volume perdagangan dan rasio Vol/Mcap secara live. coingecko Basic Mengapa Whale *Terjebak* oleh Indikator Ini? Whale memiliki modal jutaan hingga miliaran dolar. Mereka tidak bisa menyembunyikan volume transaksi mereka. Ketika whale mulai mengakumulasi (membeli) atau melakukan distribusi (menjual) sebuah koin, mereka akan menyuntikkan likuiditas dalam jumlah raksasa. Akibatnya, volume perdagangan harian koin tersebut melonjak drastis, sementara kapitalisasi pasarnya (Market Cap) belum berubah banyak. Hal inilah yang membuat rasio Vol/Mcap melompat naik dan langsung terdeteksi oleh screener ini")
 
 # 2. Fungsi untuk Mengambil Data Real-Time + Data Sparkline (Grafik)
 @st.cache_data(ttl=60)
