@@ -1,6 +1,6 @@
-# whales_screener
-coingecko
-Basic > Mengapa Whale "Terjebak" oleh Indikator Ini?
 
-Whale memiliki modal jutaan hingga miliaran dolar. Mereka tidak bisa menyembunyikan volume transaksi mereka. Ketika whale mulai mengakumulasi (membeli) atau melakukan distribusi (menjual) sebuah koin, mereka akan menyuntikkan likuiditas dalam jumlah raksasa.
-Akibatnya, volume perdagangan harian koin tersebut melonjak drastis, sementara kapitalisasi pasarnya (Market Cap) belum berubah banyak. Hal inilah yang membuat rasio Vol/Mcap melompat naik dan langsung terdeteksi oleh screener ini 
+whales_screener by coingecko
+
+Basic > Why Whales Get "Trapped" by This Indicator
+Whales control millions to billions of dollars in capital, meaning they cannot hide their transaction volumes. When a whale starts accumulating (buying) or distributing (selling) a coin, they inject a massive amount of liquidity into the market.
+Consequently, the coin's daily trading volume surges drastically while its market capitalization (Market Cap) remains relatively unchanged. This cause-and-effect triggers a sharp spike in the Vol/Mcap ratio, making their movements instantly detectable by this screener.
